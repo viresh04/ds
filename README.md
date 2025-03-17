@@ -1,0 +1,351 @@
+```py
+/* Part - A 1. Develop a program to insert and delete an element at
+   desired position in an array */
+
+#include<stdio.h>
+#include<conio.h>
+
+void insert(int [],int,int);
+void adelete(int [],int);
+
+int n;
+
+void main()
+ {
+int a[10],i,pos,ele,op;
+clrscr();
+printf("enter the size of an array \n");
+scanf("%d",&n);
+    printf("enter the array elements \n");
+    for(i = 0; i < n; i++)
+     {
+	scanf("%d",&a[i]);
+     }
+    printf("entered array elements \n");
+    for(i = 0; i < n; i++)
+     {
+	printf("%d \n",a[i]);
+     }
+    do
+      {
+	 printf("1.Insert \n");
+	 printf("2.Delete \n");
+	 printf("3.Exit \n \n");
+	 printf("enter the option \n");
+	 scanf("%d",&op);
+	 switch(op)
+	  {
+	    case 1:
+		     printf("enter the position to insert an element\n");
+		     scanf("%d",&pos);
+		     printf("enter an element to be inserted \n");
+		     scanf("%d",&ele);
+		     insert(a,pos,ele);
+		     break;
+	    case 2:
+		     printf("enter the position to delete an element\n");
+		     scanf("%d",&pos);
+		     adelete(a,pos);
+		     break;
+	 }
+	 } while(op != 3);
+      }
+
+      void insert(int a[10],int pos,int ele)
+	{
+
+	   int i;
+	   if(pos <= 0 || pos > n + 1)
+	     {
+		printf("insertion is not possible \n");
+		return;
+	     }
+	    for(i = n; i >= pos; i--)
+	     {
+	       a[i] = a[i - 1];
+	     }
+	    a[pos - 1] = ele;
+	    n++;
+	    printf("contents of array after insertion \n");
+	    for(i = 0; i < n; i++)
+	     {
+	       printf("%d \n",a[i]);
+	     }
+	}
+
+	void adelete(int a[10],int pos)
+	{
+	    int i;
+	    if(pos <= 0 || pos > n)
+	     {
+		printf("deletion is not possible \n");
+		return;
+	     }
+	    for(i = pos - 1; i < n - 1; i++)
+	     {
+	       a[i] = a[i + 1];
+	     }
+	    n--;
+	    printf("the contents of array after deletion \n");
+	    for(i = 0; i < n; i++)
+	     {
+	       printf("%d \n",a[i]);
+	     }
+	}
+
+```
+```py
+***********
+/* Part-A 2 Develop a program to introduce 2D array manipulation
+   and implement Matrix manipulation and ensure the the rules of
+   multiplication are checked */
+
+#include<stdio.h>
+#include<conio.h>
+#include<process.h>
+
+void main()
+ {
+   int a[5][5],b[5][5],c[5][5],m,n,p,q,i,j,k;
+   clrscr();
+   printf("enter the size of matrix A \n");
+   scanf("%d %d",&m,&n);
+   printf("enter the size matrix B \n");
+   scanf("%d %d",&p,&q);
+   if(n != p)
+    {
+      printf("matrix multiplication is not possible \n");
+      getch();
+      exit(0);
+    }
+   printf("enter matrix A elements \n");
+   for(i = 0; i < m; i++)
+    {
+      for(j = 0; j < n; j++)
+	{
+	   scanf("%d",&a[i][j]);
+	}
+    }
+   printf("enter matrix B elements \n");
+   for(i = 0; i < p; i++)
+    {
+      for(j = 0; j < q; j++)
+	{
+	   scanf("%d",&b[i][j]);
+	}
+    }
+
+   for(i = 0; i < m; i++)
+    {
+      for(j = 0; j < q; j++)
+	{
+	   c[i][j] = 0;
+	 for(k = 0; k < n; k++)
+	   {
+	     c[i][j] = c[i][j] + a[i][k] * b[k][j];
+	   }
+	}
+    }
+
+    printf("resultant matrix \n");
+    for(i = 0; i < m; i++)
+    {
+      for(j = 0; j < q; j++)
+	{
+	   printf("%d \t",c[i][j]);
+	}
+	printf("\n");
+    }
+    getch();
+    }
+```
+```py
+*****************************************************
+/* Part-A 3 Write functions to implement string operations
+   such as compare,concatenate.string length.Convince
+   the parameter passing techniques */
+
+#include<stdio.h>
+#include<conio.h>
+
+void slength(char []);
+void sconcat(char [],char []);
+void scompare(char [],char []);
+
+void main()
+ {
+    char s1[50],s2[50];
+    int op;
+    clrscr();
+    do
+     {
+	printf("1.String length \n");
+	printf("2.String concat \n");
+	printf("3.String compare \n");
+	printf("4.Exit \n \n");
+	printf("enter option \n");
+	scanf("%d",&op);
+	fflush(stdin);
+	switch(op)
+	 {
+	    case 1:
+		    printf("enter a string \n");
+		    scanf("%s",s1);
+		    slength(s1);
+		    break;
+	    case 2:
+		    printf("enter a string 1  \n");
+		    scanf("%s",s1);
+		    printf("enter a string 2  \n");
+		    scanf("%s",s2);
+		    sconcat(s1,s2);
+		    break;
+	    case 3:
+		    printf("enter a string1  \n");
+		    scanf("%s",s1);
+		    printf("enter a string2  \n");
+		    scanf("%s",s2);
+		    scompare(s1,s2);
+		    break;
+	 }
+	} while(op != 4);
+      }
+
+     void slength(char s1[50])
+       {
+	  int i,len = 0;
+	  for(i = 0; s1[i] != '\0'; i++)
+	    {
+	       len++;
+	    }
+	  printf("length of a string = %d \n",len);
+       }
+
+     void sconcat(char s1[50],char s2[50])
+       {
+	  int i = 0,j = 0;
+	  while(s1[i] != '\0')
+	    {
+	       i++;
+	    }
+	  while(s2[j] != '\0')
+	    {
+	       s1[i] = s2[j];
+	       i++;
+	       j++;
+	    }
+	   s1[i] = '\0';
+	   printf("concatenated string = %s \n",s1);
+	}
+
+      void scompare(char s1[50],char s2[50])
+	{
+	    int i = 0,m;
+	    while(s1[i] == s2[i])
+	      {
+		 if(s1[i] == '\0')
+		   {
+		      break;
+		    }
+		  i++;
+	       }
+	     m = s1[i] - s2[i];
+	     if(m == 0)
+	       {
+		  printf("m = %d \n",m);
+		  printf("two strings are equal \n");
+	       }
+	     else if(m > 0)
+	       {
+		  printf("m = %d \n",m);
+		  printf("first string is greater than the second string \n");
+	       }
+	     else
+	      {
+		  printf("m = %d \n",m);
+		  printf("first string is less than the second string \n");
+	       }
+	  }
+
+
+```
+```py
+
+****************************************
+/* Part-A Develop a program to swap two variables using call by value and
+   call by reference */
+#include<stdio.h>
+#include<conio.h>
+
+void cbyvalue(int,int);
+void cbyref(int *,int *);
+
+ void main()
+  {
+     int a,b;
+     clrscr();
+     printf("enter a,b \n");
+     scanf("%d %d",&a,&b);
+     printf("CALL BY VALUE \n");
+     cbyvalue(a,b);
+     printf("CALL BY REFERENCE \n");
+     cbyref(&a,&b);
+     printf("a = %d b = %d \n",a,b);
+     getch();
+  }
+
+  void cbyvalue(int a,int b)
+    {
+       int t;
+       t = a;
+       a = b;
+       b = t;
+       printf("a = %d b = %d \n",a,b);
+    }
+
+   void cbyref(int *m,int *n)
+    {
+       int t;
+       t = *m;
+       *m = *n;
+       *n = t;
+    }
+
+
+```
+```py
+
+***************
+/* Part- A 5 Implement recursive functions for
+   binary to decimal conversion */
+
+#include<stdio.h>
+#include<math.h>
+#include<conio.h>
+
+int bindec(int,int,int);
+
+void main()
+ {
+    int bn,dn = 0;
+    clrscr();
+    printf("enter binary number \n");
+    scanf("%d",&bn);
+    dn = bindec(bn,dn,0);
+    printf("decimal equvilent to binary number = %d \n",dn);
+    getch();
+ }
+
+ int bindec(int bn,int dn,int i)
+   {
+      int r;
+      if(bn == 0)
+       {
+	 return dn;
+       }
+       r = bn % 10;
+       dn = dn + r * pow(2,i);
+       return(bindec(bn / 10, dn, i + 1));
+    }
+
+```
