@@ -1,3 +1,4 @@
+# 1st
 ```py
 /* Part - A 1. Develop a program to insert and delete an element at
    desired position in an array */
@@ -94,6 +95,7 @@ scanf("%d",&n);
 	}
 
 ```
+# 2nd
 ```py
 ***********
 /* Part-A 2 Develop a program to introduce 2D array manipulation
@@ -159,6 +161,7 @@ void main()
     getch();
     }
 ```
+# 3rd
 ```py
 *****************************************************
 /* Part-A 3 Write functions to implement string operations
@@ -269,6 +272,7 @@ void main()
 
 
 ```
+# 4th
 ```py
 
 ****************************************
@@ -313,8 +317,8 @@ void cbyref(int *,int *);
 
 
 ```
+# 5th
 ```py
-
 ***************
 /* Part- A 5 Implement recursive functions for
    binary to decimal conversion */
