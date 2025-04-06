@@ -445,8 +445,8 @@ void main()
 	}
     }
 ```
+# Part -A7s quicksort */
 ```py
-/* Part -A7sort a list of N elements quicksort */
 #include<stdio.h>
 #include<conio.h>
 void quicksort(int[],int,int);
